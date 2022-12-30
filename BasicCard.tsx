@@ -131,7 +131,7 @@ export default function BasicCard() {
   return (
     <Box>
       <CollapsedBreadcrumbs />
-      <Typography sx={{ mx: '20px' }} variant="h5" component="div">
+      <Typography sx={{ m: '20px' }} variant="h5" component="div">
         Worker
       </Typography>
       {CardMap}
