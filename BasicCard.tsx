@@ -75,16 +75,16 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
             )}
           </Box>
         </Box>
-        <Typography
-          sx={{ alignSelf: 'stretch' }}
-          variant="body1"
-          color="text.secondary"
-        >
-          {version} {bull} 4 Feb 2022
-        </Typography>
-        <Typography sx={{ alignSelf: 'stretch' }} variant="body1">
-          {desc}
-        </Typography>
+        <Box sx={{ alignSelf: 'stretch' }}>
+          <Typography variant="body1" color="text.secondary">
+            {version} {bull} 4 Feb 2022
+          </Typography>
+        </Box>
+        <Box sx={{ alignSelf: 'stretch', mt: '8px', mb: '16px' }}>
+          <Typography sx={{}} variant="body1">
+            {desc}
+          </Typography>
+        </Box>
       </Box>
     </CardContent>
     <CardActions
@@ -97,7 +97,7 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
         alignSelf: 'stretch',
       }}
     >
-      <Button size="small">
+      <Button sx={{ p: '8px' }} size="small">
         Details
         <Box sx={{ ml: '10px', mt: '5px' }}>
           <svg
@@ -183,7 +183,6 @@ export default function BasicCard() {
           flexDirection: 'row',
           alignItems: 'flex-start',
           alignSelf: 'stretch',
-          justifyContent: 'space-between',
         }}
       >
         {CardMap}
@@ -195,13 +194,14 @@ function CustomCard(props) {
   return (
     <Card
       sx={{
-        minWidth: 275,
+        minWidth: 548,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        flexGrow: '1',
+        flexGrow: 1,
         mr: '24px',
+        flex: '50%',
       }}
       variant="outlined"
     >
