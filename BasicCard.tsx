@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 
 const bull = (
   <Box
@@ -26,14 +27,16 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
         alignItems: 'flex-start',
         flexDirection: 'column',
         p: '16px',
+        alignSelf: 'stretch',
       }}
     >
       <Box
         sx={{
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           flexDirection: 'column',
           m: '8px',
+          alignSelf: 'stretch',
         }}
       >
         <Box
@@ -62,12 +65,21 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
               />
             </svg>
           </Box>
-          <Box sx={{ mx: '10px', flexGrow: '1' }}>
+          <Box
+            sx={{
+              mx: '10px',
+              flexGrow: '1',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <Typography variant="h5" component="div">
               {workerName}
             </Typography>
           </Box>
-          <Box>
+          <Box
+            sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}
+          >
             {isSwitchEnable ? (
               <Switch {...label} defaultChecked />
             ) : (
@@ -75,13 +87,20 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
             )}
           </Box>
         </Box>
-        <Box sx={{ alignSelf: 'stretch' }}>
+        <Box
+          sx={{ display: 'flex', alignSelf: 'stretch', alignItems: 'center' }}
+        >
           <Typography variant="body1" color="text.secondary">
             {version} {bull} 4 Feb 2022
           </Typography>
         </Box>
-        <Box sx={{ alignSelf: 'stretch', mt: '8px', mb: '16px' }}>
-          <Typography sx={{}} variant="body1">
+        <Box
+          sx={{ display: 'flex', alignSelf: 'stretch', alignItems: 'center' }}
+        >
+          <Typography
+            sx={{ mt: '8px', mb: '16px', mr: '16px' }}
+            variant="body1"
+          >
             {desc}
           </Typography>
         </Box>
@@ -97,7 +116,7 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
         alignSelf: 'stretch',
       }}
     >
-      <Button sx={{ p: '8px' }} size="small">
+      <Button sx={{}} size="small">
         Details
         <Box sx={{ ml: '10px', mt: '5px' }}>
           <svg
@@ -163,6 +182,7 @@ export default function BasicCard() {
     return <CustomCard key={item.id} {...item} />;
   });
   return (
+    //container
     <Box
       sx={{
         display: 'flex',
@@ -173,39 +193,48 @@ export default function BasicCard() {
         px: '0px',
       }}
     >
-      <CollapsedBreadcrumbs />
-      <Typography sx={{ my: '20px' }} variant="h5" component="div">
-        Worker
-      </Typography>
-      <Box
+      <Box sx={{ mb: '24px', alignSelf: 'stretch' }}>
+        <CollapsedBreadcrumbs />
+        <Typography sx={{ mt: '8px' }} variant="h5" component="div">
+          Worker
+        </Typography>
+      </Box>
+      {/* <Box
         sx={{
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'flex-start',
           alignSelf: 'stretch',
+          p: '0px',
         }}
       >
         {CardMap}
+      </Box> */}
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          {CardMap}
+        </Grid>
       </Box>
     </Box>
   );
 }
 function CustomCard(props) {
   return (
-    <Card
-      sx={{
-        minWidth: 548,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        flexGrow: 1,
-        mr: '24px',
-        flex: '50%',
-      }}
-      variant="outlined"
-    >
-      {card(props)}
-    </Card>
+    // <Box
+    //   sx={{
+    //     minWidth: 248,
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //     alignItems: 'flex-start',
+    //     justifyContent: 'space-between',
+    //     flexGrow: 1,
+    //     mr: '24px',
+    //   }}
+    // >
+    //   <Card variant="outlined">{card(props)}</Card>
+    // </Box>
+    <Grid item xs={6}>
+      <Card variant="outlined">{card(props)}</Card>
+    </Grid>
   );
 }
