@@ -4,6 +4,7 @@ import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 import BasicCard from './BasicCard';
 import Select from './Select';
 import Modal from './Modal';
+import Dialog from './Dialog';
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
@@ -328,6 +329,7 @@ export default function App() {
     <ThemeProvider theme={wfTheme}>
       <Select />
       <Modal />
+      <Dialog />
     </ThemeProvider>
   );
 }
