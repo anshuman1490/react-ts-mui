@@ -2,6 +2,8 @@ import * as React from 'react';
 import './style.css';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 import BasicCard from './BasicCard';
+import Select from './Select';
+import Modal from './Modal';
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
@@ -202,8 +204,8 @@ const themeOptions: ThemeOptions = {
           border: '1px solid rgba(0, 0, 0, 0.23)',
         },
         root: {
-          textTransform: "none"
-        }
+          textTransform: 'none',
+        },
       },
     },
     MuiAvatar: {
@@ -290,13 +292,13 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
-    MuiBackdrop: {
-      styleOverrides: {
-        root: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        },
-      },
-    },
+    // MuiBackdrop: {
+    //   styleOverrides: {
+    //     root: {
+    //       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    //     },
+    //   },
+    // },
     MuiRating: {
       styleOverrides: {
         root: {
@@ -324,7 +326,8 @@ const wfTheme = createTheme(themeOptions);
 export default function App() {
   return (
     <ThemeProvider theme={wfTheme}>
-      <BasicCard />
+      <Select />
+      <Modal />
     </ThemeProvider>
   );
 }

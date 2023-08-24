@@ -103,6 +103,9 @@ const card = ({ id, workerName, version, desc, isSwitchEnable }) => (
           >
             {desc}
           </Typography>
+          <Button variant="contained" size="large">
+            custom
+          </Button>
         </Box>
       </Box>
     </CardContent>
